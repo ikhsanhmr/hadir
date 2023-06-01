@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <div class="container">
-        <a href="{{route('acara.create')}}" class="">
+    <div class="container w-auto ">
+        <a href="{{route('acara.create')}}" class="m-auto">
             <button class="p-2 my-2 bg-blue-500 rounded text-white">Tambah</button>
         </a>
-        <div class="card">
+        <div class="card w-auto">
             <div class="card-header">Kelola Acara</div>
             <div class="card-body">
-                <table id="myTable" class="table  table-stripped">
+                <table id="myTable" class="table  table-stripped w-auto">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -44,4 +44,19 @@
 
 
 </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<!--Datatables -->
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			var table = $('#example').DataTable({
+					responsive: true
+				})
+				.columns.adjust()
+				.responsive.recalc();
+		});
+	</script>
 @endpush
