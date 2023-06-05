@@ -89,6 +89,16 @@ class AbsensiController extends Controller
         return view('users.form_absensi', compact('acara','peserta'));
     }
 
+
+    public function exportPDF($id)
+    {
+        $acara = Acara::find($id);
+        $acara->tanggal_pelaksanaan = Carbon::createFromFormat('Y-m-d', $acara->tanggal_pelaksanaan)->format('j F Y');
+        $peserta = Peserta::all();
+        return view('users.exportpdf',compact('acara','peserta'));
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
