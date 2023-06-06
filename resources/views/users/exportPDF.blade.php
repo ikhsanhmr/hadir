@@ -24,54 +24,69 @@
       font-size: 40px;
       margin-left: 20px;
     }
+    .logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .logo {
+      margin-right: 20px;
+    }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <table id="myTable">
+
+<div class="logo-container">
+  <div class="logo">
+    <img src="{{ asset('images/plntarakan.jpeg') }}" alt="tarakan" width="200px">
+  </div>
+</div>
+
+<br>
+
+<table id="myTable" style="width:50%">
+  <tr>
+    <td>Tanggal</td>
+    <td>{{$acara->tanggal_pelaksanaan}}</td>
+  </tr>
+  <tr>
+    <td>Waktu</td>
+    <td>{{$acara->mulai}}</td>
+  </tr>
+  <tr>
+    <td>Acara</td>
+    <td>{{$acara->judul}}</td>
+  </tr>
+</table>
+
+<br>
+
+<table id="myTable">
+  <thead>
     <tr>
-        <td>tanggal</td>
-        <td>{{$acara->tanggal_pelaksanaan}}</td>
+      <th class="p-3 text-left" style="background-color: blue; color: white;">Nama</th>
+      <th class="p-3 text-left" style="background-color: blue; color: white;">NIP</th>
+      <th class="p-3 text-left" style="background-color: blue; color: white;">Instansi</th>
+      <th class="p-3 text-left" style="background-color: blue; color: white;">Divisi</th>
+      <th class="p-3 text-left" style="background-color: blue; color: white;">Jabatan</th>
     </tr>
+  </thead>
+  <tbody>
+    @foreach ($peserta as $item)
     <tr>
-        <td>waktu</td>
-        <td>{{$acara->mulai}}</td>
+      <td>{{ $item->nama}}</td>
+      <td>{{ $item->nip }}</td>
+      <td>{{ $item->instansi }}</td>
+      <td>{{ $item->divisi }}</td>
+      <td>{{ $item->jabatan }}</td>
     </tr>
-    <tr>
-        <td>acara</td>
-        <td>{{$acara->judul}}</td>
-    </tr>
+    @endforeach
+  </tbody>
+</table>
 
-  </table>
-
-  <br>
-
-  
-  <table id="myTable">
-    <thead>
-      <tr>
-        <th class="p-3 text-left" style="background-color: blue; color: white;">Nama</th>
-        <th class="p-3 text-left" style="background-color: blue; color: white;">NIP</th>
-        <th class="p-3 text-left" style="background-color: blue; color: white;">Instansi</th>
-        <th class="p-3 text-left" style="background-color: blue; color: white;">Divisi</th>
-        <th class="p-3 text-left" style="background-color: blue; color: white;">Jabatan</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($peserta as $item)
-      <tr>
-        <td>{{ $item->nama}}</td>
-        <td>{{ $item->nip }}</td>
-        <td>{{ $item->instansi }}</td>
-        <td>{{ $item->divisi }}</td>
-        <td>{{ $item->jabatan }}</td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
-
-  <script>
-    window.print();
-  </script>
+<script>
+  window.print();
+</script>
 </body>
 </html>
