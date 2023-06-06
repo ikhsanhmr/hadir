@@ -191,7 +191,7 @@
                                 @endforeach
 				            </tr>
 
-                            <a type="submit" title="export"
+                            <a href="/absensi/{{$id}}/exportPDF" title="export"
                             class="block w-full py-3 px-6 text-center rounded-xl transition bg-green-600 hover:bg-blue-700 active:bg-purple-800 focus:bg-indigo-600">
                             <span class="text-white font-semibold">
                                 Export PDF
