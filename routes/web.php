@@ -24,6 +24,7 @@ Route::get('/absensi/ajax/{id}', [AbsensiController::class, 'fetch'])->name('abs
 Route::get('/absensi/{id}', [AbsensiController::class, 'show'])->name('absensi.fetch');
 Route::get('/absensi/{id}/exportPDF', [AbsensiController::class, 'exportPDF'])->name('absensi.exportPDF');
 Route::post('/absensi/{id}', [AbsensiController::class, 'store'])->name('absensi.store');
+Route::get('/admin/acara/exportPDF/{id}', [AcaraController::class, 'exportPDF'])->name('acara.exportPDF');
 
 
 
