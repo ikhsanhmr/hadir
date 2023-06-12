@@ -18,6 +18,6 @@
   <form action="{{route('logout')}}" method="POST">
     @csrf
     <button type="submit" class="inline-block w-full px-6 py-3 my-4 font-bold text-center text-white uppercase align-middle transition-all ease-in border-0 rounded-lg select-none shadow-soft-md bg-150 bg-x-25 leading-pro text-xs bg-gradient-to-tl from-red-700 to-pink-500 hover:shadow-soft-2xl hover:scale-102">Logout</button>
-</form>
+  </form>
 </div>
 </aside>
