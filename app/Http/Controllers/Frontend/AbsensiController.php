@@ -85,7 +85,7 @@ class AbsensiController extends Controller
     {
 
         $acara = Acara::find($id);
-        $peserta = Peserta::all();
+        $peserta = Peserta::where('acara_id',$id)->get();
         return view('users.form_absensi', compact('acara','peserta','id'));
     }
 
