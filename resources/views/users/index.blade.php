@@ -21,7 +21,7 @@
             <div class="p-4 max-w-sm">
             <div class="flex rounded-lg h-full bg-teal-400 p-8 flex-col">
                 <div class="flex items-center mb-3">
-                    <h1 class="text-white text-lg font-medium">{{$acara->judul}}</h1>
+                    <h1 class="text-white text-lg-center font-bold">{{$acara->judul}}</h1>
                 </div>
                 <div class="text-white text-lg font-medium"><h3>{{Carbon\Carbon::create($acara->tanggal_pelaksanaan, 'Asia/Jakarta')->locale('id')->isoFormat('dddd, D MMMM YYYY')}}
                 </h3></div>
