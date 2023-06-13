@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\DataTables\AcaraDataTable;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\AcaraRequest;
 use App\Models\Acara;
+use App\Models\Peserta;
 use Illuminate\Http\Request;
+use App\DataTables\AcaraDataTable;
+use App\Http\Requests\AcaraRequest;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -32,6 +33,17 @@ class AcaraController extends Controller
         }
         return view('admin.acara.acara');
     }
+
+
+    public function exportPDF($id)
+    {
+        $acara = Acara::where('id',$id)->first();
+        $pesertas = Peserta::where('id',$id)->get();
+
+
+        return view('admin.acara.exportPDF',compact('acara','pesertas'));
+    }
+
 
     /**
     * Show the form for creating a new resource.
