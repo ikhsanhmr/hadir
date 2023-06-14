@@ -38,11 +38,12 @@ class AbsensiController extends Controller
         $pesertas = DB::table('pesertas')
         ->join('acaras', 'acaras.id', '=', 'pesertas.acara_id')
         ->select('pesertas.nama', 'pesertas.acara_id', 'pesertas.nip', 'pesertas.instansi', 'pesertas.jabatan', 'pesertas.divisi')
-        ->where('pesertas.acara_id', $id);
+        ->where('pesertas.acara_id', $id)->get();
 
 
             return (DataTables::of($pesertas)
             ->make(true));
+            // return $pesertas;
     }
 
     /**

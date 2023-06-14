@@ -56,7 +56,7 @@
                 <div aria-hidden="true"
                     class="absolute top-0 w-full h-full rounded-2xl bg-white shadow-xl transition duration-500 group-hover:scale-105 lg:group-hover:scale-110">
                 </div>
-                <div class="relative pt-6 pb-1 lg:p-8">
+                <div class="relative pt-6 pb-4 lg:p-8">
                     <h2 class="text-3xl text-gray-700 font-semibold text-center mb-2">{{ $acara->judul }}</h2>
                     <h3 class="text-sm dark:text-white-700 text-center">
                         <p>{{Carbon\Carbon::createFromFormat('Y-m-d', $acara->tanggal_pelaksanaan)->format('d/m/Y')}} |
@@ -162,9 +162,10 @@
                 </form>
             </div>
 
-            <div class="relative group md:w-6/12 lg:w-10/12">
+
+            <div class="relative group md:w-6/12 lg:w-10/12 text-right" style="right:-40px">
                 <div aria-hidden="true"
-                    class="absolute top-0 w-full h-full rounded-2xl bg-white shadow-lg transition duration-500 group-hover:scale-105">
+                    class="absolute top-0 w-full h-full rounded-2xl shadow-lg transition duration-500 group-hover:scale-105" style="background:white">
                 </div>
                 <div class="relative p-6 pt-16 md:p-8 md:pl-12 md:rounded-r-2xl lg:pl-20 lg:p-16">
                     <!-- component -->
@@ -174,9 +175,10 @@
                             <tr
                                 class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
                                 <th class="p-3 text-left">Nama</th>
-                                <th class="p-3 text-left">acara id</th>
                                 <th class="p-3 text-left">NIP</th>
                                 <th class="p-3 text-left">Instansi</th>
+                                <th class="p-3 text-left">Divisi</th>
+                                <th class="p-3 text-left">Jabatan</th>
                             
                             </tr>
                         </thead>
@@ -205,9 +207,13 @@
         ajax: url,
         columns: [
             {data: 'nama', name: 'nama'},
-            {data: 'acara_id', name: 'acara_id'},
             {data: 'nip', name: 'nip'},
-            {data: 'instansi', name: 'instansi'}
+            {data: 'instansi', name: 'instansi'},
+            {data: 'divisi', name: 'divisi'},
+            {data: 'jabatan', name: 'jabatan'},
+        ],
+        columnDefs:[
+            {targets:"_all",className:"text-left"}
         ]
     });
 
