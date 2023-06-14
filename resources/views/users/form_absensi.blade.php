@@ -174,29 +174,13 @@
                             <tr
                                 class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
                                 <th class="p-3 text-left">Nama</th>
+                                <th class="p-3 text-left">acara id</th>
                                 <th class="p-3 text-left">NIP</th>
                                 <th class="p-3 text-left">Instansi</th>
-                                <th class="p-3 text-left">Divisi</th>
-                                <th class="p-3 text-left">Jabatan</th>
+                            
                             </tr>
                         </thead>
                         <tbody class="flex-1 sm:flex-none">
-                            <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                                @foreach ($peserta as $item)
-                                <td class="border-grey-light border hover:bg-gray-100 p-3">{{ $item->nama}}</td>
-                                <td class="border-grey-light border hover:bg-gray-100 p-3">{{ $item->nip }}</td>
-                                <td class="border-grey-light border hover:bg-gray-100 p-3">{{ $item->instansi }}</td>
-                                <td class="border-grey-light border hover:bg-gray-100 p-3">{{ $item->divisi }}</td>
-                                <td class="border-grey-light border hover:bg-gray-100 p-3">{{ $item->jabatan }}</td>
-                                @endforeach
-				            </tr>
-
-                            <a href="/absensi/{{$id}}/exportPDF" title="export"
-                            class="block w-full py-3 px-6 text-center rounded-xl transition bg-green-600 hover:bg-blue-700 active:bg-purple-800 focus:bg-indigo-600">
-                            <span class="text-white font-semibold">
-                                Export PDF
-                            </span>
-                        </a>
 
                         </tbody>
                     </table>
@@ -211,51 +195,37 @@
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/r-2.4.1/datatables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-
-{{-- <script>
-    let id = "{!!$acara->id!!}";
-    $(function () {
-        let table = new DataTable('#myTable', {
-            processing: true,
-            serverSide: true,
-            ajax: "{{ url('absensi/ajax/{id}') }}".replace('{id}', id),
-            columns: [{
-                    data: 'nama',
-                    name: 'pesertas.nama'
-                },
-                {
-                    data: 'nip',
-                    name: 'pesertas.nip'
-                },
-                {
-                    data: 'instansi',
-                    name: 'pesertas.instansi'
-                },
-                {
-                    data: 'divisi',
-                    name: 'pesertas.divisi'
-                },
-                {
-                    data: 'jabatan',
-                    name: 'pesertas.jabatan'
-                }
-            ]
-        });
+<script>
+    let id = '{{request()->segment(2)}}'
+    let url = "{{ route('absensi.ajax', ['id' => ':id']) }}";
+    url = url.replace(':id', id);
+    let table = new DataTable('#myTable', {
+        processing: true,
+        serverSide: true,
+        ajax: url,
+        columns: [
+            {data: 'nama', name: 'nama'},
+            {data: 'acara_id', name: 'acara_id'},
+            {data: 'nip', name: 'nip'},
+            {data: 'instansi', name: 'instansi'}
+        ]
     });
 
-    function inputAgency() {
-        return {
-            show: false,
-            display() {
-                this.show = true
-            },
-            close(e) {
-                this.show = false
-            },
-            isOpen() {
-                return this.show === true
-            }
-        }
-    }
-</script>--}}
+
+</script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<!--Datatables -->
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			var table = $('#example').DataTable({
+					responsive: true
+				})
+				.columns.adjust()
+				.responsive.recalc();
+		});
+	</script>
 </html>
