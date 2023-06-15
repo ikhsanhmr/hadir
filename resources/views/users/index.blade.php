@@ -19,11 +19,11 @@
         <!-- card 1 -->
         <div class="block m-10 p-6 bg-white border w-auto border-gray-200 rounded-lg shadow ">
             <div class="p-4 max-w-sm">
-            <div class="flex rounded-lg h-full bg-teal-400 p-8 flex-col">
+            <div class="flex rounded-lg h-full bg-gray-300 p-8 flex-col">
                 <div class="flex items-center mb-3">
-                    <h1 class="text-white text-lg-center font-bold">{{$acara->judul}}</h1>
+                    <h1 class="text-black text-lg-center font-bold">{{$acara->judul}}</h1>
                 </div>
-                <div class="text-white text-lg font-medium"><h3>{{Carbon\Carbon::create($acara->tanggal_pelaksanaan, 'Asia/Jakarta')->locale('id')->isoFormat('dddd, D MMMM YYYY')}}
+                <div class="text-black text-lg font-medium"><h3>{{Carbon\Carbon::create($acara->tanggal_pelaksanaan, 'Asia/Jakarta')->locale('id')->isoFormat('dddd, D MMMM YYYY')}}
                 </h3></div>
                 <div class="flex flex-col justify-between flex-grow">
                     <p class="leading-relaxed text-base text-white">
